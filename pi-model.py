@@ -87,12 +87,15 @@ models = {
 
 
 def main(args):
-    try:
-        revision = subprocess.check_output(["grep","Revision","/proc/cpuinfo"])
-    except subprocess.CalledProcessError as grepexc:                                                                                                   
-        print "Error getting revision number (not a Pi?)" 
-        return 1       
-    revision = revision.split()[2]
+    if (len(args) == 1):        
+        try:
+            revision = subprocess.check_output(["grep","Revision","/proc/cpuinfo"])
+        except subprocess.CalledProcessError as grepexc:                                                                                                   
+            print ("Error getting revision number (not a Pi?)")
+            return 1
+        revision = revision.split()[2]
+    else:
+        revision = args[1]
     try:
         model = models[revision]
     except:
@@ -105,7 +108,7 @@ def main(args):
             mem = int(mem.split()[1])/1024 # turn it into Mb
             memStr = "Reported usable RAM is "+str(mem)+"Mb";
         except subprocess.CalledProcessError as grepexc:                                                                                                   
-            print "Can't get memory size"            
+            print ("Can't get memory size")
         print("* Note: for this board RAM can be 256Mb or 512Mb")
         print(memStr)
     return 0
