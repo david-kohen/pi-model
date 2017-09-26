@@ -25,34 +25,8 @@
 #~ "Hardware Revision Code from cpuinfo","Model and PCB Revision","RAM", Notes
 import os
 import subprocess
-#~ models = {
-#~ "0002":    ["Model B Rev 1",                                  "256Mb",""],
-#~ "0003":    ["Model B Rev 1 ECN0001",                          "256Mb", "No fuses, D14 removed"],
-#~ "0004":    ["Model B Rev 2",                                  "256Mb", "Sony"],
-#~ "0005":    ["Model B Rev 2",                                  "256Mb", "Qisda"],
-#~ "0006":    ["Model B Rev 2",                                  "256Mb", "Egoman"],
-#~ "0007":    ["Model A",                                        "256Mb", "Egoman"],
-#~ "0008":    ["Model A",                                        "256Mb", ""],
-#~ "0009":    ["Model A",                                        "256Mb", ""],
-#~ "000d":    ["Model B Rev 2",                                  "512Mb", ""],
-#~ "000e":    ["Model B Rev 2",                                  "512Mb", ""],
-#~ "000f":    ["Model B Rev 2",                                  "512Mb", ""],
-#~ "0010":    ["Model B+",                                       "512Mb", ""],
-#~ "0013":    ["Model B+",                                       "512Mb", ""],
-#~ "0011":    ["Compute Module",                                 "512Mb", ""],
-#~ "0014":    ["Compute Module (EMbest, China)",                 "512Mb", ""],
-#~ "0012":    ["Model A+",                                       "256Mb", ""],
-#~ "0015":    ["Model A+ (EMbest, China)*",                      "256Mb", ""],
-#~ "0015":    ["Model A+ (EMbest, China)*",                      "512Mb", ""],
-#~ "a01041":  ["Pi 2 Model B v1.1 (Sony, UK)",                  "1024Mb", ""],
-#~ "a21041":  ["Pi 2 Model B v1.1 (EMbest, China)",             "1024Mb", ""],
-#~ "a22042":  ["Pi 2 Model B v1.2",                             "1024Mb", ""],
-#~ "900092":  ["PiZero v1.2",                                    "512Mb", ""],
-#~ "900093":  ["PiZero v1.3",                                    "512Mb", ""],
-#~ "a02082":  ["Pi 3 Model B",                                  "1024Mb", "Sony, UK"],
-#~ "a22082":  ["Pi 3 Model B",                                  "1024Mb", "EMbest, China"],
-#~ };
 
+# cat /proc/device-tree/model
 
 models = {
 #~ Revision	Release Date	Model	        PCB Revision	Memory	            Notes
@@ -69,10 +43,10 @@ models = {
 "000e":	    ["Q4 2012",	"Pi B",                    "2.0",  	"512 Mb",	        "Sony"],
 "000f":	    ["Q4 2012",	"Pi B",                    "2.0",	"512 Mb",   	    "Qisda"],
 "0010":	    ["Q3 2014",	"Pi B+",                   "1.0",   "512 Mb",   	    "Sony"],
-"0011":	    ["Q2 2014",	"Pi Compute Module",       "1.0",	"512 Mb",       	"Sony"],
+"0011":	    ["Q2 2014",	"Pi Compute Module 1",     "1.0",	"512 Mb",       	"Sony"],
 "0012":	    ["Q4 2014",	"Pi A+",                   "1.1",  	"256 Mb",   	    "Sony"],
 "0013":	    ["Q1 2015",	"Pi B+",                   "1.2",	"512 Mb",   	     "?"],
-"0014":	    ["Q2 2014",	"Pi Compute Module",       "1.0",  	"512 Mb",       	"EMbest"],
+"0014":	    ["Q2 2014",	"Pi Compute Module 1",     "1.0",  	"512 Mb",       	"EMbest"],
 "0015":	    ["?",	    "Pi A+",                   "1.1",	"256 Mb / 512 Mb",	"EMbest"],
 "a01040":	["Unknown",	"Pi 2 Model B",            "1.0",  	"1 GB",          	"Unknown"],
 "a01041":	["Q1 2015",	"Pi 2 Model B",            "1.1",	"1 GB",	            "Sony"],
@@ -81,6 +55,8 @@ models = {
 "900092":	["Q4 2015",	"Pi Zero",                 "1.2",	"512 Mb",       	"Sony"],
 "900093":	["Q2 2016",	"Pi Zero",                 "1.3",  	"512 Mb",       	"Sony"],
 "920093":	["Q4 2016?","Pi Zero",                 "1.3",	"512 Mb",       	"EMbest"],
+"9000c1":	["Q1 2017",	"Pi Zero W",               "1.1",  	"512 Mb",       	"Sony"],
+"a020a0":	["Q1 2017",	"Compute Module 3 +Lite",  "1.0"	"1 GB",	            "Sony"],
 "a02082":	["Q1 2016",	"Pi 3 Model B",            "1.2",  	"1 GB",         	"Sony"],
 "a22082":	["Q1 2016",	"Pi 3 Model B",            "1.2",	"1 GB",         	"EMbest"],
 };
@@ -115,4 +91,6 @@ def main(args):
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv))
+    sys.exit(main(sys.argv))   
+    
+    
